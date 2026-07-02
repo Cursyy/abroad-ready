@@ -33,7 +33,7 @@ export async function getProgrammeBySlug(
   slug: string,
 ): Promise<Programme | null> {
   const data = await fetchStrapi<StrapiResponse<Programme[]>>(
-    `programmes?fiters[slug][$eq]=${slug}`
+    `programmes?filters[slug][$eq]=${slug}`
   )
   return data.data[0] ?? null
 }
