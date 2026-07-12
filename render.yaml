@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: abroad-ready-backend
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: HOST
+        value: 0.0.0.0
+      - key: PORT
+        value: 1337
+      - key: APP_KEYS
+        sync: false
+      - key: API_TOKEN_SALT
+        sync: false
+      - key: ADMIN_JWT_SECRET
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: DATABASE_FILENAME
+        value: .tmp/data.db
