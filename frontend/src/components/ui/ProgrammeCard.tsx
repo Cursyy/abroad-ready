@@ -21,7 +21,7 @@ export default function ProgrammeCard({ programme }: ProgrammeCardProps) {
   }
   return (
     <Link href={`/programmes/${programme.slug}`}>
-      <div className="group rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
+      <div className="group rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md min-h-[220px]">
         <div className="mb-3 flex items-center justify-between">
           <span
             className={`rounded-full bg-blue-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide ${getTypeStyles(programme.type)}`}
