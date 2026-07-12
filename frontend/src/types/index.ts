@@ -1,3 +1,4 @@
+import type { BlocksContent } from '@strapi/blocks-react-renderer'
 export interface RichTextChild {
   type: string
   text: string
@@ -18,7 +19,7 @@ export interface Programme {
   requirements: string
   type: 'work' | 'travel' | 'internship'
   featured: boolean | null
-  description: RichTextBlock[]
+  description: BlocksContent
   createdAt: string
   updatedAt: string
   publishedAt: string
