@@ -1,39 +1,39 @@
-import type { Metadata } from "next";
-import localFont from "next/font/local";
-import "./globals.css";
-import Navbar from "@/components/ui/Navbar";
-import Footer from "@/components/ui/Footer"
+import type { Metadata } from 'next'
+import localFont from 'next/font/local'
+import './globals.css'
+import Navbar from '@/components/ui/Navbar'
+import Footer from '@/components/ui/Footer'
 
 const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
+  src: './fonts/GeistVF.woff',
+  variable: '--font-geist-sans',
+  weight: '100 900',
+})
 const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+  src: './fonts/GeistMonoVF.woff',
+  variable: '--font-geist-mono',
+  weight: '100 900',
+})
 
 export const metadata: Metadata = {
-  title: "Abroad Ready",
-  description: "Find your perfect international work and travel experience",
-};
+  title: 'Abroad Ready',
+  description: 'Find your perfect international work and travel experience',
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#1a1a1a] text-white flex flex-col min-h-screen`}>
-        <Navbar/>
-        <div className="flex-grow">
-          {children}
-        </div>
-        <Footer/>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} flex min-h-screen flex-col bg-[#1a1a1a] text-white antialiased`}
+      >
+        <Navbar />
+        <div className="flex-grow">{children}</div>
+        <Footer />
       </body>
     </html>
-  );
+  )
 }

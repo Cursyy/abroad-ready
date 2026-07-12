@@ -1,8 +1,8 @@
 'use client'
 
-import { Programme } from "@/types"
-import { useState } from "react" 
-import ProgrammeCard from "@/components/ui/ProgrammeCard"
+import { Programme } from '@/types'
+import { useState } from 'react'
+import ProgrammeCard from '@/components/ui/ProgrammeCard'
 
 interface CountryFilterProps {
   programmes: Programme[]
@@ -12,35 +12,36 @@ export default function CountryFilter({ programmes }: CountryFilterProps) {
   const [selectedCountry, setSelectedCountry] = useState('all')
   const countries = [...new Set(programmes.map((p) => p.country))]
 
-  const filtered = selectedCountry === 'all' 
-    ? programmes 
-    : programmes.filter((c) => c.country === selectedCountry)
+  const filtered =
+    selectedCountry === 'all'
+      ? programmes
+      : programmes.filter((c) => c.country === selectedCountry)
 
   return (
     <>
-      <div className="flex flex-wrap gap-3 mb-10">
-        <button 
-          onClick={() => setSelectedCountry('all')} 
-          className={`px-6 py-3 text-base font-medium rounded-xl border transition-colors ${
-            selectedCountry === 'all' 
-              ? 'bg-zinc-800 border-zinc-700 text-white' 
+      <div className="mb-10 flex flex-wrap gap-3">
+        <button
+          onClick={() => setSelectedCountry('all')}
+          className={`rounded-xl border px-6 py-3 text-base font-medium transition-colors ${
+            selectedCountry === 'all'
+              ? 'border-zinc-700 bg-zinc-800 text-white'
               : 'border-zinc-800 bg-transparent text-zinc-400 hover:border-zinc-700 hover:text-white'
           }`}
-        > 
-          All 
+        >
+          All
         </button>
-        
+
         {countries.map((country) => (
-          <button 
-            key={country} 
+          <button
+            key={country}
             onClick={() => setSelectedCountry(country)}
-            className={`px-6 py-3 text-base font-medium rounded-xl border transition-colors ${
-              selectedCountry === country 
-                ? 'bg-zinc-800 border-zinc-700 text-white' 
+            className={`rounded-xl border px-6 py-3 text-base font-medium transition-colors ${
+              selectedCountry === country
+                ? 'border-zinc-700 bg-zinc-800 text-white'
                 : 'border-zinc-800 bg-transparent text-zinc-400 hover:border-zinc-700 hover:text-white'
             }`}
-          > 
-            {country} 
+          >
+            {country}
           </button>
         ))}
       </div>
