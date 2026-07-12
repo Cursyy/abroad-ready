@@ -51,7 +51,6 @@ export default async function Home() {
         </div>
       </div>
 
-      {/* Featured Section Header */}
       <div className="w-full flex justify-between items-end mb-8">
         <h2 className="text-2xl font-bold text-white tracking-tight">Featured programmes</h2>
         <Link href="/programmes" className="text-[#3b82f6] hover:underline text-sm font-semibold flex items-center gap-1">
@@ -59,7 +58,6 @@ export default async function Home() {
         </Link>
       </div>
 
-      {/* Dynamic Grid Row (Insert cards or layout items directly below) */}
       <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
         {featuredProgrammes.map((programme) => (
           <ProgrammeCard key={programme.id} programme={programme}/>

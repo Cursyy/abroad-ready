@@ -1,4 +1,4 @@
-import {Programme, StrapiResponse} from '@/types'
+import {Programme, StrapiResponse, Application} from '@/types'
 
 const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL
 
@@ -17,9 +17,11 @@ async function fetchStrapi<T>(
     ...options,
   })
 
-  if(!res.ok){
-    throw new Error(`Strapi fetch failed: ${res.status} ${res.statusText}`)
-  }
+if (!res.ok) {
+  const errorBody = await res.json()
+  console.error('Strapi error:', JSON.stringify(errorBody, null, 2))
+  throw new Error(`Strapi fetch failed: ${res.status} ${res.statusText}`)
+}
 
   return res.json()
 }
@@ -36,4 +38,13 @@ export async function getProgrammeBySlug(
     `programmes?filters[slug][$eq]=${slug}`
   )
   return data.data[0] ?? null
+}
+
+export async function submitApplication(
+  data: Application
+): Promise<void>{
+  await fetchStrapi('applications', {
+    method: 'POST',
+    body: JSON.stringify({data})
+  })
 }

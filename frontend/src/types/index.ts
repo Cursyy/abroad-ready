@@ -39,3 +39,17 @@ export interface StrapiResponse<T> {
     }
   }
 }
+
+export interface Application{
+  firstName: string,
+  lastName: string,
+  email: string,
+  phone: string | null,
+  startDate: string,
+  university: string,
+  course: string,
+  age: number,
+  linkedinURL: string | null,
+  statement: string,
+  programme: string
+}

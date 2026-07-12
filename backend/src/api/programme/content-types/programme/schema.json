@@ -42,19 +42,15 @@
     "featured": {
       "type": "boolean"
     },
-    "coverImage": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
     "description": {
       "type": "blocks",
       "required": true
+    },
+    "applications": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::application.application",
+      "mappedBy": "programme"
     }
   }
 }

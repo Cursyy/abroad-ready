@@ -1,0 +1,59 @@
+{
+  "kind": "collectionType",
+  "collectionName": "applications",
+  "info": {
+    "singularName": "application",
+    "pluralName": "applications",
+    "displayName": "application"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "firstName": {
+      "type": "string",
+      "required": true
+    },
+    "lastName": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "startDate": {
+      "type": "date",
+      "required": true
+    },
+    "programme": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::programme.programme",
+      "inversedBy": "applications"
+    },
+    "university": {
+      "type": "string",
+      "required": true
+    },
+    "course": {
+      "type": "string",
+      "required": true
+    },
+    "age": {
+      "type": "integer",
+      "required": true
+    },
+    "linkedinURL": {
+      "type": "string"
+    },
+    "statement": {
+      "type": "text",
+      "required": true
+    },
+    "phone": {
+      "type": "string"
+    }
+  }
+}
