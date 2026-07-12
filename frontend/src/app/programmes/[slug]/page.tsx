@@ -9,9 +9,16 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  const programmes = await getProgrammes()
-  return programmes.map((p) => ({ slug: p.slug }))
+  try {
+    const programmes = await getProgrammes()
+    return programmes.map((p) => ({ slug: p.slug }))
+  } catch (error) {
+    console.error('Failed to fetch programmes for static params:', error)
+    return []
+  }
 }
+
+export const dynamicParams = true
 
 export async function generateMetadata({
   params,
